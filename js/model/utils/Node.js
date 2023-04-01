@@ -28,12 +28,12 @@ class Node {
 
     applyHeuristic(isHeuristicOn) {
         if(isHeuristicOn) {
-            return this.neighbors.sort((a, b) => a.neighbors.length - b.neighbors.length)
+            return this.neighbors.filter(node => node.playNumber === null).sort((a, b) => a.neighbors.length - b.neighbors.length)
         } else {
-            const aux = [ ...this.neighbors ]
+            const aux = [ ...this.neighbors.filter(node => node.playNumber === null) ]
             for (let i = aux.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [aux[i],aux[j]] = [aux[j], aux[i]];
+                [aux[i], aux[j]] = [aux[j], aux[i]];
             }
             return aux;
         }
@@ -56,9 +56,6 @@ class Node {
         const neighbors = this.applyHeuristic(isHeuristicOn)
 
         for(let i = 0; i < neighbors.length; ++i) {
-            if(neighbors[i].playNumber)
-                continue
-            
             if(neighbors[i].playPosition(nodes, isHeuristicOn, playNumber + 1))
                 return true
         }
