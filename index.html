@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Passeio do Cavalo - Inteligência Artificial I</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="js/model/utils/Node.js"></script>
+    <script src="js/model/PasseioDoCavalo.js"></script>
+</head>
+
+<body >
+    <div class="main">
+        <div class="container">
+            <div class="menu">
+                <b>Tipo de Execução</b><br/>
+                <input name="tipo-execucao" type="radio" value="0" checked>
+                <label for="tipo-execucao">Aleatoria</label>
+                <input name="tipo-execucao" type="radio" value="1">
+                <label for="tipo-execucao">Heurística de Acessibilidade</label><br/><br/>
+                Clique em uma posição para iniciar
+            </div>
+            <div class="tabuleiro">
+                <div class="carregando">
+                    <div>Executando algoritmo...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
