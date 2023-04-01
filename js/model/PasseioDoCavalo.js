@@ -1,7 +1,6 @@
 class PasseioDoCavalo {
 
     constructor() {
-        this.executing = false
         this.nodes = []
         this.generateNodes()
     }
@@ -13,11 +12,11 @@ class PasseioDoCavalo {
                 this.nodes.push(node)
             }
         }
+        this.nodes.forEach(node => node.updateNeighborns(this.nodes))
     }
 
     play(line, column, isHeuristicOn) {
         console.log(`Playing on line ${line} and column ${column}`)
-        this.nodes.forEach(node => node.updateNeighborns(this.nodes))
 
         const startNode = this.nodes.find((node) => node.line === line && node.column === column)
         const result = startNode.playPosition(this.nodes, isHeuristicOn, 1)

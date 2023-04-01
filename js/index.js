@@ -44,10 +44,6 @@ function finishExecution(result, nodes) {
 function processEvent(event) {
     const data = event.data
     switch(data.event){
-        case 'updatePlayNumber':
-            const { line, column, playNumber } = data
-            renderPlayNumber(line, column, playNumber)
-            break;
         case 'finishExecution':
             finishExecution(data.result, data.nodes)
             break;
